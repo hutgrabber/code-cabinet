@@ -15,8 +15,29 @@ cat << "EOF"
                  |___/                                 
 EOF
 
-fail() {
+fail () {
 	echo "$@, exiting," >&2
 	exit 1
 }
 
+require_sudo () {
+    if ["$EUID" -eq 0]; then
+        SUDO=""
+        SUDO_E=""
+        return 0
+    fi
+
+    if sudo -v; then
+        SUDO="sudo"
+        SUDO_E="sudo -E"
+        return 0
+    fi
+
+    fail "hutgrabber needs sudo :/"
+
+}
+
+
+tmp_dir () {
+    mkdir -p 
+}
