@@ -3,6 +3,7 @@
 
 # for i in tqdm(range(10)):
 #     sleep(0.5)
+
 from tqdm import tqdm
 import time
 
@@ -20,3 +21,4 @@ for i in range(100):
 
 # Close the progress bar
 pbar.close()
+
